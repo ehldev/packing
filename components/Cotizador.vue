@@ -41,7 +41,7 @@
         </h1> -->
     
         <!-- Filtro -->
-        <section class="filtro">
+        <section class="filtro overflow-hidden">
           <div class="row overflow-hidden">
             <div class="col-6 col-md-1 d-flex flex-column justify-content-start text-center text-md-left">
                 <span class="font-weight-bold">Bolsa</span>
