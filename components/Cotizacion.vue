@@ -2,7 +2,7 @@
 <section id="cotizar" class="form bg-danger text-white py-5">
     <div class="container py-5">
         <div class="text-center">
-            <h2 class="font-weight-bold mb-0 cotizar__titulo">¡COTIZA ONLINE EN SEGUNDOS!</h2>
+            <h2 class="font-weight-bold mb-0 cotizar__titulo mb-4">¡COTIZA ONLINE EN SEGUNDOS!</h2>
             <h3 class="mt-1 identificate" v-if="currentSlide === 1">Identifícate</h3>
         </div>
 
@@ -13,12 +13,7 @@
 
             <div class="text-center overflow-hidden" :class="currentSlide != 3 ? 'col-lg-8' : 'col-lg-12'">
 
-            <transition
-                name="custom-classes-transition"
-                enter-active-class="animated fadeInRight"
-            >
-                <form-contact key="1" @validate="next($event)" v-if="currentSlide === 1"></form-contact>
-            </transition>
+            <form-contact key="1" @validate="next($event)" v-if="currentSlide === 1"></form-contact>
 
             <catalogo @select="mostrarCotizador($event)" v-if="currentSlide === 2"></catalogo>
 

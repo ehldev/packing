@@ -1,6 +1,6 @@
 <template>
 <div class="animated fadeInRight">
-    <div class="filter">
+    <div class="filter mt-3">
       <button
         class="button"
         :class="{' button--active': tipo ==='con-asa'}"
