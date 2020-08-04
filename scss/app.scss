@@ -1,0 +1,159 @@
+@import './variables';
+
+// @import '../node_modules/bootstrap/scss/bootstrap';
+// @import '../node_modules/bootstrap-vue/src/index.scss';
+
+
+@import '../node_modules/bootstrap/scss/_functions.scss';
+@import '../node_modules/bootstrap/scss/_variables.scss';
+@import '../node_modules/bootstrap/scss/_mixins.scss';
+@import '../node_modules/bootstrap/scss/_root.scss';
+@import '../node_modules/bootstrap/scss/_reboot.scss';
+@import '../node_modules/bootstrap/scss/_utilities.scss';
+@import '../node_modules/bootstrap/scss/bootstrap-grid.scss';
+@import '../node_modules/bootstrap/scss/buttons.scss';
+
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+button,
+a,
+input,
+select {
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+/** END: Non Openmrs CSS **/
+/* .omrs-input-group {
+  position: relative;
+} */
+
+/* Input*/
+/* .omrs-input-filled > input,
+.omrs-input-filled > textarea{
+  border: none;
+  width: 100%;
+  padding-left: 0.875rem;
+  line-height: 147.6%;
+  padding-top: 0.825rem;
+  padding-bottom: 0.5rem;
+}
+
+.omrs-input-filled > input:focus,
+.omrs-input-filled > textarea:focus{
+  outline: none;
+}
+
+.omrs-input-underlined > .omrs-input-label,
+.omrs-input-filled > .omrs-input-label {
+  position: absolute;
+  top: 0.9375rem;
+  left: 0.875rem;
+  right: 0;
+  margin: auto;
+  line-height: 147.6%;
+  color: white;
+  transition: top .2s;
+}
+
+
+.omrs-input-underlined > input:focus + .omrs-input-label,
+.omrs-input-underlined > input:valid + .omrs-input-label,
+.omrs-input-filled > input:focus + .omrs-input-label,
+.omrs-input-filled > input:valid + .omrs-input-label,
+.omrs-input-underlined > textarea:focus + .omrs-input-label,
+.omrs-input-underlined > textarea:valid + .omrs-input-label,
+.omrs-input-filled > textarea:focus + .omrs-input-label,
+.omrs-input-filled > textarea:valid + .omrs-input-label{
+  top: -.3rem;
+  font-size: 0.9375rem;
+  margin-bottom: 32px;;
+}
+
+.omrs-input-underlined:not(.omrs-input-danger) > input:focus + .omrs-input-label,
+.omrs-input-filled:not(.omrs-input-danger) > input:focus + .omrs-input-label,
+.omrs-input-underlined:not(.omrs-input-danger) > textarea:focus + .omrs-input-label,
+.omrs-input-filled:not(.omrs-input-danger) > textarea:focus + .omrs-input-label{
+  color: white;
+}
+
+
+.omrs-input-underlined:not(.omrs-input-danger) > input:focus ~ svg,
+.omrs-input-filled:not(.omrs-input-danger) > input:focus ~ svg {
+  fill: $secondary;
+} */
+
+/** DANGER **/
+/* .omrs-input-underlined > input,
+.omrs-input-underlined > textarea{
+  background: $primary;
+}
+.omrs-input-filled > input,
+.omrs-input-filled > textarea{
+  background: $danger;
+  border-bottom: 2px solid white !important;
+  color: white;
+} */
+
+.churchward-bold {
+  font-family: Churchward;
+  font-weight: bold;
+}
+
+@keyframes jump_low-data {
+  0% {
+    transform: translateY(-25px) scale(1);
+  }
+  50% {
+    transform: translateY(-50px) scale(1);
+  }
+  100% {
+    transform: translateY(-25px) scale(1);
+  }
+}
+
+@keyframes jump_low-data-carousel {
+  0% {
+    transform: translateY(-10px) scale(1);
+  }
+  50% {
+    transform: translateY(-15px) scale(1);
+  }
+  100% {
+    transform: translateY(-10px) scale(1);
+  }
+}
+
+.image-pulse {
+  transform: scale(0.98);
+
+  transition: transform .1s;
+
+  &:hover {
+    transform: scale(0.95);
+  }
+}
+
+.image-zoom {
+  img.img-fluid,
+  img.w-100,
+  .column-image {
+    transform: scale(0.98);
+
+    transition: transform .3s, box-shadow .3s;
+  }
+
+  &:hover {
+    transform: scale(1);
+
+    img.img-fluid,
+    img.w-100,
+    .column-image {
+      box-shadow: 10px 10px 42px -30px rgba(0,0,0,0.52);
+    }
+  }
+
+}
