@@ -156,7 +156,7 @@
                 ></v-text-field>
             </div>
             <span v-if="entrega === 'no'">Lugar de recojo:</span>
-            <span class="font-weight-bold" v-if="entrega === 'no'">Av. Precursores 966, San Miguel</span>
+            <span class="font-weight-bold" v-if="entrega === 'no'">Calle Chaquilchaca 168, San Miguel</span>
           </div>
         </section>
 
@@ -173,9 +173,9 @@
         </section>
 
         <!-- Acciones -->
-        <div class="cotizacion__acciones mt-5 mt-md-3 w-100 d-flex justify-content-center justify-content-md-start">
-          <button class="btn mr-3" @click="dlg_comprar = true">Comprar Ya</button>
-          <button class="btn" @click="sendMessage()">Comprar por Whatsapp</button>
+        <div class="cotizacion__acciones mt-5 mt-md-3 w-100 d-flex flex-column flex-md-row justify-content-center align-items-center justify-content-md-start">
+          <button class="btn mr-3 mt-3 mt-md-0" @click="dlg_comprar = true">Comprar Ya</button>
+          <button class="btn btn-whatsapp mt-3 mt-md-0" @click="sendMessage()">Comprar por Whatsapp</button>
         </div>
       </section>
     </div>
@@ -184,9 +184,9 @@
     <v-dialog v-model="dlg_comprar" max-width="560">
       <v-card class="comprar">
         <v-card-title></v-card-title>
-        <v-card-text>Aún no tenemos disponible ésta función. Sin embargo, nuestros vendedores pueden atenderle por Whatsapp.</v-card-text>
+        <v-card-text class="text-center">Aún no tenemos disponible ésta función. Sin embargo, nuestros vendedores pueden atenderle por Whatsapp.</v-card-text>
         <v-card-actions class="comprar__acciones">
-          <button class="btn" @click="dlg_comprar = false; sendMessage()">Comprar por Whatsapp</button>
+          <button class="btn btn-success" @click="dlg_comprar = false; sendMessage()">Comprar por Whatsapp</button>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -341,52 +341,54 @@ export default {
       let phone = "51933356752";
 
       let text = `
-      Buen dia, me llamo *${this.usuario.nombre} (Persona ${
-        this.usuario.persona === "natural" ? "Natural" : "Jurídica"
-      })*, con el correo ${this.usuario.correo} con el número *${
+      Buen dia, me llamo *${this.usuario.nombre}*,
+      con el correo ${this.usuario.correo} con el número *${
         this.usuario.telefono
       }*.%0A%0A
       Con la intención de solicitar el siguiente pedido:%0A%0A
       Tipo de Bolsa: *${
         this.producto.tipo === "sin-asa" ? "Sin Asa" : "Con Asa"
       }*%0A
-      Bolsa: *${this.producto.id}*%0A
+      Modelo de Bolsa: *${this.producto.id}*%0A
       Medidas: *${this.producto.ancho} x ${this.producto.base} x ${
         this.producto.alto
       }*%0A
-      Color: *${this.producto.color}*%0A
-      Gramaje: *${this.producto.gramaje}gr*%0A
-      Cantidad: *${this.cantidad} unidades*%0A
-      Tipo de Envío: *${
-        this.entrega_arr.find(e => e.value === this.entrega).text
-      }*%0A
+      Material: *Kraft*%0A
       ${
         this.impresion === "no"
           ? ""
           : `
-      Impresión: *${this.impresion} Colores*%0A
-      Lados: *${this.lados}*%0A%0A`
+        Impresión: *${this.impresion == 1 ? this.impresion + ' color' : this.impresion + ' colores'}*%0A
+        Lados: *${this.lados}*%0A`
       }
+      Gramaje: *${this.producto.gramaje}gr*%0A
+      Cantidad: *${this.cantidad} unidades*%0A
+      Tipo de entrega: *${
+        this.entrega_arr.find(e => e.value === this.entrega).text
+      }*%0A
       Tipo de Pago: ${
         this.factura
           ? `*Con Factura*%0A
       RUC: *${this.ruc}*%0A`
           : "*Sin Factura*%0A"
       }
-      Con Subtotal: *S/ ${this.subtotal}*%0A
+      Subtotal: *S/ ${this.subtotal}*%0A
+      ${
+        this.factura ? `IGV: *S/ ${this.igv}*%0A` : ""
+      }
       ${
         this.entrega === "express"
-          ? `Con Precio de Delivery: *S/ ${this.precio_entrega}*%0A`
+          ? `Precio de Delivery: *S/ ${this.precio_entrega}*%0A`
           : ""
       }
-      Dando un Total: *S/ ${this.total}*%0A%0A
-      Con el tiempo de entrega: *${this.tiempo}*%0A
+      Total: *S/ ${this.total}*%0A%0A
+      Tiempo de entrega: *${this.tiempo}*%0A
       ${
         this.entrega === "no"
-          ? `En el lugar de recojo: *Av. Precursores 966, San Miguel*%0A`
+          ? `En el lugar de recojo: *Calle Chaquilchaca 168*%0A`
           : `En el lugar de entrega: *${this.lugar}*%0A`
       }
-      Distrito: *${this.usuario.distrito}*%0A`;
+      Distrito: *${this.entrega === "no" ? 'San Miguel' : this.usuario.distrito}*%0A`;
 
       text = text.replace(/\s+/g, " ");
 
@@ -477,7 +479,16 @@ export default {
             transform: scale(.97);
             background: $primary;
         }
+
+        &.btn-whatsapp {
+          background-color: rgba(#25D366, .9);
+
+          &:hover {
+              background: #25D366;
+          }
+        }
     }
+
   }
 }
 
@@ -515,9 +526,10 @@ export default {
     }
 
     .btn {
-      background-color: rgba($danger, .9);
+      background-color: rgba(#25D366, .9);
       color: white;
 
+      border-color: #25D366;
       border-radius: 20px;
 
       transition: background-color 0.3s;
@@ -526,7 +538,7 @@ export default {
 
       &:hover {
           transform: scale(.97);
-          background: $danger;
+          background: #25D366;
       }
     }
   }

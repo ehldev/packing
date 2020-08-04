@@ -18,8 +18,8 @@
         <whatsapp-button class="ml-2 mt-3" message="Bolsas de Papel"></whatsapp-button>
       </div>
 
-      <div class="col-md-6 second-column mt-5 mt-md-0">
-        <img src="/productos/bolsa-slide.webp" alt="BOLSAS DE PAPEL" class="img-fluid banner__image">
+      <div class="col-md-6 second-column mt-5 mt-md-0 animation">
+        <img src="/productos/bolsa-slide.webp" alt="BOLSAS DE PAPEL" class="img-fluid banner__image animated fadeInUp">
       </div>
     </div>
 
@@ -310,7 +310,7 @@
     mounted() {
       setTimeout(() => {
         this.loadCarousel = true
-      }, 1500)
+      }, 1000)
     },
     components: {
       WhatsappButton
@@ -360,7 +360,9 @@
       @media (min-width: 1200px) {
         margin-top: 0;
       }
+    }
 
+    .animation {
       animation: jump_low-data 2s infinite;
     }
 

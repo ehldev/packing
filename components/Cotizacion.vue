@@ -22,7 +22,7 @@
             <div class="text-center d-flex flex-column justify-content-center mt-5">
                 <p class="form__text align-self-center">
                 Nota: Los datos proporcionados son confidenciales y
-                para uso exclusivo de Publi Express.
+                para uso exclusivo de Packing Perú.
                 </p>
 
                 <p>Packing Perú tiene el respaldo del grupo Ando Marketing</p>

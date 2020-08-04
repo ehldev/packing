@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div v-if="loadPage">
     <banner></banner>
 
-    <section class="delivery" data-aos-once="false" data-aos="fade-in">
+    <section class="delivery" data-aos-delay="200" data-aos="flip-right">
       <div class="container py-5 image-zoom">
         <div class="row">
           <div class="col-md-6 delivery__first-column column-image mt-5 mt-md-0">
@@ -58,7 +58,7 @@
       </div>
     </section>
 
-    <section class="ropa bg-info" data-aos-once="false" data-aos="fade-in">
+    <section class="ropa bg-info">
       <div class="container py-5 image-zoom">
         <div class="row">
           <div class="col-md-6 text-left pl-md-5 d-flex justify-content-center align-items-center">
@@ -109,17 +109,18 @@
             </article>
           </div>
 
-          <div class="col-md-6 mt-5 mt-md-0">
+          <div class="col-md-6 mt-5 mt-md-0" data-aos-delay="100" data-aos="flip-right">
             <img src="/productos/bolsa-ropa.webp" alt="" class="w-100 h-100">
           </div>
         </div>
       </div>
     </section>
 
-    <section class="alimentos" data-aos-once="false" data-aos="fade-in">
-      <div class="container py-5 image-zoom">
+    <section class="alimentos">
+      <div class="container py-5">
         <div class="row">
-          <div class="col-md-6 mt-5 mt-md-0 column-image alimentos__first-column">
+          <div class="col-md-6 mt-5 mt-md-0 column-image alimentos__first-column" data-aos-delay="300" data-aos="flip-right">
+            <img src="/productos/bolsa-alimentos.webp" alt="">
           </div>
 
           <div class="col-md-6 text-left pl-md-5">
@@ -171,7 +172,7 @@
       </div>
     </section>
 
-    <section class="botellas bg-info" data-aos-once="false" data-aos="fade-in">
+    <section class="botellas bg-info">
       <div class="container py-5 image-zoom">
         <div class="row">
           <div class="col-md-6 text-left d-flex justify-content-center align-items-center">
@@ -222,28 +223,28 @@
             </article>
           </div>
 
-          <div class="col-md-6">
+          <div class="col-md-6" data-aos-delay="500" data-aos="flip-left">
             <div class="botellas__image bg-white column-image mt-5 mt-md-0"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="products py-5" data-aos-once="false" data-aos="fade-in">
+    <section class="products py-5">
       <div class="container text-center">
         <h2 class="text-primary font-weight-bold products__title">Otros productos relacionados</h2>
         <div class="products__container mt-3 mt-lg-5">
-          <div class="d-flex flex-column justify-content-center align-items-center mt-5 mt-md-0 image-zoom">
+          <div class="d-flex flex-column justify-content-center align-items-center mt-5 mt-md-0 image-zoom" data-aos-delay="200" data-aos="flip-up">
             <img src="/productos/etiquetas.webp" alt="Producto etiquetas" class="img-fluid">
             <whatsapp-button class="mt-5" message="Etiquetas"></whatsapp-button>
           </div>
 
-          <div class="d-flex flex-column justify-content-center align-items-center mt-5 mt-md-0  image-zoom">
+          <div class="d-flex flex-column justify-content-center align-items-center mt-5 mt-md-0  image-zoom" data-aos-delay="200" data-aos="flip-up">
             <img src="/productos/stickers.webp" alt="Producto Stickers" class="img-fluid">
             <whatsapp-button class="mt-5" message="Stickers"></whatsapp-button>
           </div>
 
-          <div class="d-flex flex-column justify-content-center align-items-center mt-5 mt-md-0 image-zoom">
+          <div class="d-flex flex-column justify-content-center align-items-center mt-5 mt-md-0 image-zoom" data-aos-delay="200" data-aos="flip-up">
             <img src="/productos/tazas.webp" alt="Producto Tazas" class="img-fluid">
             <whatsapp-button class="mt-5" message="Tazas"></whatsapp-button>
           </div>
@@ -251,7 +252,7 @@
       </div>
     </section>
 
-    <section class="sabias py-5 bg-info" data-aos-once="false" data-aos="fade-in">
+    <section class="sabias py-5 bg-info" data-aos-delay="500" data-aos="flip-right">
       <div class="container">
         <h2 class="text-primary font-weight-bold sabias__title text-center">¿SABÍAS QUE...?</h2>
 
@@ -377,7 +378,7 @@
     </section>
 
     <v-app>
-      <cotizacion></cotizacion>
+      <cotizacion data-aos="flip-down" data-aos-delay="300"></cotizacion>
     </v-app>
   </div>
 </template>
@@ -407,10 +408,15 @@ export default {
           delay: 2500,
           disableOnInteraction: false
         }
-      }
+      },
+      loadPage: false
     }
   },
   mounted() {
+    setTimeout(() => {
+      this.loadPage = true
+    }, 500)
+
     setTimeout(() => {
       this.$fb.enable()
       this.$fb.init()
@@ -549,7 +555,8 @@ export default {
   border-right: 25px solid white;
 
   &__first-column {
-    background-image: url("/productos/bolsa-alimentos.webp");
+
+    /* background-image: url("/productos/bolsa-alimentos.webp");
     background-repeat: round;
 
     @media (min-width: 768px) {
@@ -559,7 +566,7 @@ export default {
 
     @media (min-width: 992px) {
       background-position: center;
-    }
+    } */
   }
 }
 
