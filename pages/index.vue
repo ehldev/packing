@@ -377,7 +377,7 @@
     </section>
 
     <v-app>
-      <cotizacion data-aos-once="false" data-aos="fade-in"></cotizacion>
+      <cotizacion></cotizacion>
     </v-app>
   </div>
 </template>
