@@ -3,7 +3,7 @@
     <banner></banner>
 
     <section class="delivery" data-aos-once="false" data-aos="fade-in">
-      <div class="container py-5">
+      <div class="container py-5 image-zoom">
         <div class="row">
           <div class="col-md-6 delivery__first-column column-image mt-5 mt-md-0">
           </div>
