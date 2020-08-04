@@ -95,7 +95,4 @@ export default {
 </script>
 
 <style lang="scss">
-.v-application .error--text {
-    color: rgba(white, .7) !important;
-}
 </style>
