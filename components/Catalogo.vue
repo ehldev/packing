@@ -13,7 +13,7 @@
       >Sin Asa</button>
     </div>
 
-    <section class="catalogo">
+    <section class="catalogo mt-3">
       <div class="row">
           <div class="col-md-6" v-for="(producto, idx) in productos_filtrados" :key="idx">
             <section
