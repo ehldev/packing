@@ -159,6 +159,7 @@ select {
 }
 
 .v-application .error--text,
-.v-messages.theme--dark.error--text {
+.v-messages.theme--dark.error--text,
+.v-label.theme--dark.error--text {
   color: rgba(white, .7) !important;
 }
