@@ -1,5 +1,5 @@
 <template>
-<div class="animated fadeInRight">
+<div class="container animated fadeInRight">
     <div class="row py-0">
         <div class="col-md-12 py-0 d-flex justify-content-between align-items-center">
             <div class="cotizacion__volver">
@@ -12,7 +12,7 @@
         </div>
     </div>
 
-    <div class="row justify-content-end py-0">
+    <div class="row justify-content-end py-0 mt-4">
         <div class="col-md-8 text-left py-0">
             <p class="cotizacion__bienvenida my-0">
                 <span class="bg px-3 py-1">Bienvenido:</span>
@@ -39,7 +39,7 @@
           Cotizador
           <span class="red">Online</span>
         </h1> -->
-    
+
         <!-- Filtro -->
         <section class="filtro overflow-hidden">
           <div class="row overflow-hidden">
@@ -134,7 +134,7 @@
             <span class="font-weight-bold">{{tiempo}}</span>
           </div>
 
-          
+
           <div class="w-100">
             <!-- <v-text-field
                 v-if="entrega !== 'no'"

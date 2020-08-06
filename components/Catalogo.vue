@@ -1,5 +1,5 @@
 <template>
-<div class="animated fadeInRight">
+<div class="container animated fadeInRight">
     <div class="filter mt-3">
       <button
         class="button"

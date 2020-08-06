@@ -1,6 +1,6 @@
 <template>
 <div>
-    <v-form ref="form" class="form border-0" @submit.prevent="validate">
+    <v-form ref="form" class="form-contact border-0" @submit.prevent="validate">
         <v-text-field
             class="text-field"
             v-model.trim="nombre"
@@ -40,7 +40,7 @@
             class="pt-0"
         ></v-select>
 
-        <button type="submit" class="form__button text-danger font-weight-bold py-2 px-4" :disabled="loading ? true : false">{{ loading ? 'ENVIANDO...' : 'INGRESAR' }}</button>
+        <button type="submit" class="form-contact__button text-danger font-weight-bold py-2 px-4" :disabled="loading ? true : false">{{ loading ? 'ENVIANDO...' : 'INGRESAR' }}</button>
     </v-form>
 </div>
 </template>
@@ -84,7 +84,7 @@ export default {
                 });
 
                 this.$emit('validate', 2)
-                
+
                 return;
             }
 

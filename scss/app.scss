@@ -158,12 +158,18 @@ select {
 
 }
 
+.overflow-hidden  {
+  overflow: hidden !important;
+}
+
+/* Sobreescribir estilos de vuetify */
+
+.theme--light.v-application {
+  max-width: 100vw !important;
+}
+
 .v-application .error--text,
 .v-messages.theme--dark.error--text,
 .v-label.theme--dark.error--text {
   color: rgba(white, .7) !important;
-}
-
-.overflow-hidden  {
-  overflow: hidden !important;
 }

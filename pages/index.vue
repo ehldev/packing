@@ -19,7 +19,7 @@
               </h3>
             </div>
 
-            
+
             <div class="mt-3 mb-0 text-secondary d-flex">
               <span class="text-danger font-weight-bold mr-1">&check;</span>
               <p class="my-0">
@@ -119,8 +119,8 @@
     <section class="alimentos">
       <div class="container py-5">
         <div class="row">
-          <div class="col-md-6 mt-5 mt-md-0 column-image alimentos__first-column" data-aos-delay="300" data-aos="flip-right">
-            <img src="/productos/bolsa-alimentos.webp" alt="">
+          <div class="col-md-6 mt-5 mt-md-0 alimentos__first-column" data-aos-delay="300" data-aos="flip-right">
+            <img src="/productos/bolsa-alimentos.webp" alt="" class="img-fluid">
           </div>
 
           <div class="col-md-6 text-left pl-md-5">
@@ -292,7 +292,7 @@
 
           <!-- Carousel -->
           <div class="col-md-5 mt-5 mt-md-0">
-            <swiper class="swiper carousel-small" :options="swiperOption">
+            <swiper class="swiper carousel-small" :options="swiperOption" v-if="loadCarousel">
               <swiper-slide>
                 <article class="d-flex justify-content-center text-center">
                   <div class="carousel-small__content">
@@ -378,7 +378,7 @@
     </section>
 
     <v-app>
-      <cotizacion data-aos="flip-down" data-aos-delay="300"></cotizacion>
+      <cotizacion></cotizacion>
     </v-app>
   </div>
 </template>
@@ -409,12 +409,14 @@ export default {
           disableOnInteraction: false
         }
       },
-      loadPage: false
+      loadPage: false,
+      loadCarousel: false
     }
   },
   mounted() {
     setTimeout(() => {
       this.loadPage = true
+      this.loadCarousel = true
     }, 500)
 
     setTimeout(() => {
@@ -429,9 +431,6 @@ export default {
 
       gtag('config', 'UA-173473721-1');
     }, 2000)
-  },
-  components: {
-    Cotizacion
   },
   head() {
     let title = appConfig.title,
@@ -465,6 +464,7 @@ export default {
   },
   components: {
     Banner,
+    Cotizacion,
     WhatsappButton
   },
   methods: {
@@ -472,7 +472,7 @@ export default {
       this.loading = true
 
       setTimeout(() => {
-        // 
+        //
         let message = `
           Hola %20%F0%9F%91%8B%F0%9F%8F%BB, mi nombre es *${this.name}* %0AQuisiera cotizar bolsas de papel, mis datos de contacto son:%0A%0A%F0%9F%93%B1%20*${this.phone}*%0A%20%E2%9C%89%EF%B8%8F *${this.email}*%0A%F0%9F%93%8D*${this.address}*
         `
@@ -556,6 +556,10 @@ export default {
 
   &__first-column {
 
+    img {
+      max-width: 100%;
+    }
+
     /* background-image: url("/productos/bolsa-alimentos.webp");
     background-repeat: round;
 
@@ -626,48 +630,6 @@ export default {
 
     p {
       text-align: justify;
-    }
-  }
-
-  .form {
-    border: 25px solid white;
-
-    &__image {
-      max-width: 25vw;
-
-      @media (min-width: 768px) {
-        max-width: 6vw;
-      }
-    }
-
-    &__content {
-      width: 80%;
-      margin: 0 auto;
-    }
-
-    &__button {
-      background-color: white;
-
-      font-size: 1.5em;
-
-      margin-top: 2rem;
-      border: none;
-
-      transform: scale(0.97);
-
-      transition: transform .5s;
-
-      &:hover {
-        transform: scale(0.95);
-      }
-    }
-
-    &__text {
-      width: 60%;
-    }
-
-    .identificate {
-      font-size: 1.3em;
     }
   }
 
